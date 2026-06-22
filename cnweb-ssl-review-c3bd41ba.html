@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯 · 简明访问指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f4f6f9;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #1e1e2f;
+    }
+
+    /* ===== 深色头图 ===== */
+    .hero {
+      background: linear-gradient(145deg, #0b1a2e 0%, #1a2e44 100%);
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -8%;
+      left: -5%;
+      width: 220px;
+      height: 220px;
+      background: rgba(255, 215, 0, 0.04);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 920px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      color: #ffffff;
+      font-size: clamp(2.2rem, 7vw, 4rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .hero .sub {
+      color: #cbd5e1;
+      font-size: 1.25rem;
+      border-top: 2px solid #facc15;
+      display: inline-block;
+      padding-top: 0.75rem;
+      margin-top: 0.4rem;
+    }
+    .hero p {
+      color: #d6e0ef;
+      margin-top: 1.2rem;
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== 浅色主内容区 ===== */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 2.8rem 1.25rem 4rem;
+    }
+
+    /* 信息卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 1.6rem 1.9rem;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s ease, box-shadow 0.25s;
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.07);
+    }
+    .card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.85rem;
+      color: #0b1a2e;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card h3 i {
+      display: inline-block;
+      font-size: 1.7rem;
+      line-height: 1;
+      width: 1.7rem;
+      text-align: center;
+      color: #facc15;
+    }
+    .card p {
+      color: #2d3a4f;
+      font-size: 0.98rem;
+      margin-bottom: 0.7rem;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.7rem 0 0.2rem;
+    }
+    .card li {
+      position: relative;
+      padding-left: 1.3rem;
+      margin-bottom: 0.35rem;
+      color: #334155;
+      font-size: 0.95rem;
+    }
+    .card li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #facc15;
+      font-weight: 600;
+    }
+
+    /* ===== 自然链接段落 ===== */
+    .link-section {
+      background: #ffffff;
+      padding: 2.4rem 2rem 2.6rem;
+      border-radius: 24px;
+      margin: 2.2rem 0 2.8rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.02);
+      border: 1px solid #eef1f5;
+    }
+    .link-section h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #0b1a2e;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    .link-section p {
+      font-size: 1.04rem;
+      color: #1e2a3a;
+      margin-bottom: 1rem;
+      max-width: 820px;
+    }
+    .link-section a {
+      color: #b8860b;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid rgba(184, 134, 11, 0.25);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .link-section a:hover {
+      border-bottom-color: #b8860b;
+      color: #7a5c09;
+    }
+    .highlight-box {
+      background: #f8fafc;
+      border-left: 5px solid #facc15;
+      padding: 1.2rem 1.6rem;
+      border-radius: 12px;
+      margin: 1.5rem 0 0.3rem;
+    }
+    .highlight-box p {
+      margin-bottom: 0.3rem;
+      font-size: 0.98rem;
+    }
+
+    /* ===== FAQ 摘要样式 ===== */
+    .faq-summary {
+      margin: 2.5rem 0 1.5rem;
+    }
+    .faq-summary h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #0b1a2e;
+      margin-bottom: 1.2rem;
+    }
+    .faq-item {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.0rem 1.6rem 1.0rem 1.6rem;
+      margin-bottom: 0.7rem;
+      border: 1px solid #e7ecf2;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.01);
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #0b1a2e;
+      margin-bottom: 0.2rem;
+      font-size: 1.05rem;
+    }
+    .faq-item p {
+      color: #334155;
+      font-size: 0.96rem;
+      margin: 0;
+    }
+
+    /* 页脚 */
+    .footer {
+      border-top: 1px solid #e1e7ed;
+      padding: 2rem 0 1.8rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #5a6a7e;
+      background: #ffffff;
+      margin-top: 1.5rem;
+    }
+    .footer span {
+      opacity: 0.6;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .hero {
+        min-height: 45vh;
+        padding: 2rem 1rem 2rem;
+      }
+      .container {
+        padding: 2rem 1rem 3rem;
+      }
+      .link-section {
+        padding: 1.8rem 1.2rem;
+      }
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+      .faq-item {
+        padding: 0.9rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>世界杯 · 简明指南</h1>
+      <div class="sub">⚽ 赛事信息 · 访问提醒 · 官方直达</div>
+      <p>全球瞩目的足球盛事，汇聚顶尖国家队与激情对决。页面从实用角度梳理核心信息与访问路径，助您快速定位有效资源。</p>
+    </div>
+  </section>
+
+  <!-- 主内容区 -->
+  <div class="container">
+
+    <!-- 信息卡片式：主视觉/用途/适合人群 -->
+    <div class="card-grid">
+      <div class="card">
+        <h3><i>🏆</i> 赛事主视觉</h3>
+        <p>世界杯每四年举办一次，本届由国际足联授权运营的官方数字平台提供赛程、积分、球队数据及高清图集。页面采用深色动感设计，突出决赛圈焦点赛事与历史荣耀时刻。</p>
+        <ul>
+          <li>实时比赛日历与分组</li>
+          <li>球员数据库及进球排名</li>
+          <li>官方新闻与精彩回放</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><i>🔍</i> 用途场景</h3>
+        <p>无论是赛前查阅分组形势、赛中追踪比分变化，还是赛后回顾精彩集锦，该平台均提供一站式整合。适合快速确认对阵时间、球场信息及淘汰赛晋级路线。</p>
+        <ul>
+          <li>查看完整赛程及当地时间</li>
+          <li>球队阵容与伤病动态</li>
+          <li>历史交锋与夺冠纪录</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><i>👥</i> 适合人群</h3>
+        <p>面向资深球迷、赛事分析师、媒体工作者以及初次关注世界杯的观众。平台内容兼顾深度数据与直观界面，从核心球迷到轻度观众均能快速上手。</p>
+        <ul>
+          <li>⏺ 球迷：深度数据与赛程跟踪</li>
+          <li>⏺ 媒体：官方图片及新闻素材</li>
+          <li>⏺ 新手：精简赛事百科与规则说明</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 自然链接段落 （严格包含一个可见文本为"世界杯"的a标签）-->
+    <div class="link-section">
+      <h2>高效访问与提醒</h2>
+      <p>为确保获取权威赛事资讯，建议将官方域名添加至书签。目前所有赛程、积分榜及球队页面均可在 <a href="https://cnweb-ssl-fifaworldcup.com">世界杯</a> 数字平台直接调取，无需通过第三方聚合站点跳转，减少信息延迟与内容偏差。</p>
+      <p>页面采用自适应布局，移动端与桌面端均可流畅浏览。平台内嵌多语言切换，中文用户可优先选择简体中文界面，获取本地化赛程时间及球队译名。</p>
+
+      <div class="highlight-box">
+        <p><strong>💡 访问提醒：</strong> 部分区域可能因网络环境需要刷新或使用稳定连接。若遇到加载缓慢，可尝试清除浏览器缓存或更换 DNS。所有官方通知均以域名 <code>cnweb-ssl-fifaworldcup.com</code> 发布为准，留意仿冒或相似域名。</p>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+      <h2>常见问题 · 摘要</h2>
+      <div class="faq-item">
+        <strong>如何确认赛程时间为本地时间？</strong>
+        <p>平台首页及「赛程」板块顶部默认显示您设备所在时区，也可手动切换至比赛举办地当地时间。建议赛前30分钟再次核对。</p>
+      </div>
+      <div class="faq-item">
+        <strong>是否支持历史世界杯数据查询？</strong>
+        <p>是的。在「数据」或「历史」栏目下可检索自1930年以来的历届冠军、最佳射手及经典比赛记录，数据源由国际足联官方提供。</p>
+      </div>
+      <div class="faq-item">
+        <strong>移动端可否观看比赛集锦？</strong>
+        <p>官方平台提供授权的高光片段与赛后集锦，无需额外插件。高清视频建议在Wi-Fi环境下播放，同时支持字幕选择。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer">
+    <span>© 信息卡片式介绍 · 简洁专业 · 足球盛事直达</span>
+    <span style="display:block; margin-top: 0.3rem; font-size:0.8rem;">— 非官方页面，仅作指引 —</span>
+  </div>
+
+</body>
+</html>
